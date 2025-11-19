@@ -1,0 +1,42 @@
+{
+  "name": "ultra-fast-csv-parser",
+  "version": "0.1.0",
+  "description": "High-performance CSV parsing library with Rust WASM core",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "npm run build:wasm && npm run build:ts",
+    "build:wasm": "cd wasm && ./build.sh",
+    "build:ts": "rollup -c",
+    "test": "vitest",
+    "test:rust": "cd wasm && cargo test",
+    "demo": "cd demo && npm run dev",
+    "bench": "cd bench && npm run bench",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "csv",
+    "parser",
+    "wasm",
+    "rust",
+    "typescript",
+    "streaming",
+    "high-performance"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@rollup/plugin-wasm": "^6.0.0",
+    "rollup": "^4.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "files": [
+    "dist",
+    "wasm/pkg"
+  ]
+}
